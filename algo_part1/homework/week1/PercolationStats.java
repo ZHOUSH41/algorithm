@@ -2,6 +2,7 @@ import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
 
 public class PercolationStats {
+
     // perform independent trials on an n-by-n grid
     private double[] op;
     private double mean;

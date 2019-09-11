@@ -2,8 +2,8 @@ import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
+    /** 用了两个uf,规避isFull的bug,但是memory就超过了 */
     // creates n-by-n grid, with all sites initially blocked
-
     private WeightedQuickUnionUF uf;
     private WeightedQuickUnionUF ufTop;
     private int N;
