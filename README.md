@@ -1,2 +1,0 @@
-# Java_algorithm
-heyalexchoi
