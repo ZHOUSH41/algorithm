@@ -44,7 +44,7 @@ public class PercolationStats {
 
     // test client (see below)
     public static void main(String[] args){
-        PercolationStats stat = new PercolationStats(2, 100000);
+        PercolationStats stat = new PercolationStats(2, 1000);
         System.out.println("mean   = " + stat.mean());
         System.out.println("stddev = " + stat.stddev());
         System.out.println("95% confidence interval = [" + stat.confidenceLo() + ", " + stat.confidenceHi() + "]" );
