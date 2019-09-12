@@ -2,59 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4576fe0-3aa3-40c2-8746-b9350bbdc815" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algo_part1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/algo_part1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.idea/checkstyle-idea.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.idea/codeInsightSettings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.idea/externalDependencies.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.idea/file.template.settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.idea/fileTemplates/includes/File Header.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.idea/fileTemplates/internal/AnnotationType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.idea/fileTemplates/internal/Class.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.idea/fileTemplates/internal/Enum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.idea/fileTemplates/internal/Interface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.idea/fileTemplates/internal/module-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.idea/fileTemplates/internal/package-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.idea/findbugs-idea.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.idea/inspectionProfiles/Algorithms__Part_I.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.idea/inspectionProfiles/COS_126.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.idea/libraries/algs4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.idea/libraries/introcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.idea/saveactions_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.lift/algs4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.lift/checkstyle-coursera.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.lift/checkstyle-lift.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.lift/checkstyle-suppressions.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.lift/introcs.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.lift/spotbugs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/.lift/stdlib.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/Percolation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/Percolation.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/PercolationStats.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/input20.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/input3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/input4.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/input6.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/input7.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/input8.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/hw1/percolation.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo_part1/.lift/algs4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo_part1/.lift/checkstyle-coursera.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo_part1/.lift/checkstyle-lift.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo_part1/.lift/checkstyle-suppressions.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo_part1/.lift/introcs.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo_part1/.lift/spotbugs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo_part1/.lift/stdlib.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/week1/Percolation.java" beforeDir="false" afterPath="$PROJECT_DIR$/homework/week1/Percolation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/week1/Percolation.zip" beforeDir="false" afterPath="$PROJECT_DIR$/homework/week1/Percolation.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/algo_part1/Percolation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/algo_part1/Percolation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo_part1/Percolation.zip" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/algo_part1/Percolation.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo_part1/PercolationStats.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/algo_part1/PercolationStats.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -68,13 +21,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/homework/week1/Percolation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="607">
-              <caret line="100" column="28" selection-start-line="100" selection-start-column="28" selection-end-line="100" selection-end-column="28" />
+            <state relative-caret-position="-1160">
+              <caret line="84" column="47" selection-start-line="84" selection-start-column="47" selection-end-line="84" selection-end-column="47" />
               <folding>
-                <element signature="e#2252#2253#0" expanded="true" />
-                <element signature="e#2279#2280#0" expanded="true" />
-                <element signature="e#2347#2348#0" expanded="true" />
-                <element signature="e#2391#2392#0" expanded="true" />
+                <element signature="e#3399#3400#0" expanded="true" />
+                <element signature="e#3426#3427#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -83,8 +34,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/homework/week1/PercolationStats.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1073">
-              <caret line="46" column="61" selection-start-line="46" selection-start-column="61" selection-end-line="46" selection-end-column="61" />
+            <state relative-caret-position="681">
+              <caret line="47" column="54" selection-start-line="47" selection-start-column="54" selection-end-line="47" selection-end-column="54" />
+              <folding>
+                <element signature="e#906#907#0" expanded="true" />
+                <element signature="e#933#934#0" expanded="true" />
+                <element signature="e#1020#1021#0" expanded="true" />
+                <element signature="e#1046#1047#0" expanded="true" />
+                <element signature="e#1128#1129#0" expanded="true" />
+                <element signature="e#1191#1192#0" expanded="true" />
+                <element signature="e#1274#1275#0" expanded="true" />
+                <element signature="e#1337#1338#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -155,7 +116,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1568218355563" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1568255228288" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/algs4.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -173,12 +134,12 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.PercolationStats">
+  <component name="RunManager" selected="Application.Percolation">
     <configuration name="Percolation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Percolation" />
       <module name="algo_part1" />
       <option name="REDIRECT_INPUT" value="true" />
-      <option name="INPUT_FILE" value="$PROJECT_DIR$/homework/week1/input6.txt" />
+      <option name="INPUT_FILE" value="$PROJECT_DIR$/homework/week1/input4.txt" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -197,8 +158,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.PercolationStats" />
         <item itemvalue="Application.Percolation" />
+        <item itemvalue="Application.PercolationStats" />
       </list>
     </recent_temporary>
   </component>
@@ -229,7 +190,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24749833" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39559707" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.53368914" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -248,17 +209,6 @@
     </layout>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <condition expression="p == 2 &amp;&amp; q == 6" language="JAVA" />
-          <url>file://$PROJECT_DIR$/homework/week1/Percolation.java</url>
-          <line>103</line>
-          <properties />
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="((Percolation)this).open" custom="Percolation" />
@@ -267,6 +217,16 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="breakpointCondition">
+      <expression>
+        <expression-string>p == 1 &amp;&amp; q == 2</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>row == 6 &amp;&amp; col == 2</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>p == 2 &amp;&amp; q == 6</expression-string>
         <language-id>JAVA</language-id>
@@ -279,11 +239,6 @@
       </expression>
       <expression>
         <expression-string>p == 5 &amp;&amp; q == 6</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>p == 1 &amp;&amp; q == 2</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -304,16 +259,6 @@
       </expression>
       <expression>
         <expression-string>row == 2 &amp;&amp; col == 6</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>row == 6 &amp;&amp; col == 2</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>row &gt; 2 || col &gt; 2</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -386,20 +331,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/week1/PercolationStats.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1073">
-          <caret line="46" column="61" selection-start-line="46" selection-start-column="61" selection-end-line="46" selection-end-column="61" />
+        <state relative-caret-position="681">
+          <caret line="47" column="54" selection-start-line="47" selection-start-column="54" selection-end-line="47" selection-end-column="54" />
+          <folding>
+            <element signature="e#906#907#0" expanded="true" />
+            <element signature="e#933#934#0" expanded="true" />
+            <element signature="e#1020#1021#0" expanded="true" />
+            <element signature="e#1046#1047#0" expanded="true" />
+            <element signature="e#1128#1129#0" expanded="true" />
+            <element signature="e#1191#1192#0" expanded="true" />
+            <element signature="e#1274#1275#0" expanded="true" />
+            <element signature="e#1337#1338#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/week1/Percolation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="607">
-          <caret line="100" column="28" selection-start-line="100" selection-start-column="28" selection-end-line="100" selection-end-column="28" />
+        <state relative-caret-position="-1160">
+          <caret line="84" column="47" selection-start-line="84" selection-start-column="47" selection-end-line="84" selection-end-column="47" />
           <folding>
-            <element signature="e#2252#2253#0" expanded="true" />
-            <element signature="e#2279#2280#0" expanded="true" />
-            <element signature="e#2347#2348#0" expanded="true" />
-            <element signature="e#2391#2392#0" expanded="true" />
+            <element signature="e#3399#3400#0" expanded="true" />
+            <element signature="e#3426#3427#0" expanded="true" />
           </folding>
         </state>
       </provider>
