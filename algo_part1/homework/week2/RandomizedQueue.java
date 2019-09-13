@@ -47,6 +47,10 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         rq[rand] = rq[size-1];
         rq[size-1] = null;
         size--;
+
+        /** dequeue的时候要缩小数组长度
+         * corner case: size > 0 */
+        if(size > 0 && size <= rq.length/4) resize(rq.length/2);
         return temp;
 
     }
@@ -61,15 +65,21 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
     // return an independent iterator over items in random order
     public Iterator<Item> iterator(){
-        return new ListIterator();
+        return new ArrayIterator();
     }
 
-    private class ListIterator implements Iterator<Item>{
+    private class ArrayIterator implements Iterator<Item>{
+        /** 随机队列,所以iterator的时候也是随机的,要重新写个数组来迭代 */
+        private int curNum = size;
+        private Item[] copy = (Item[]) new Object[rq.length];
 
-        private int curNum = 0;
-
+        public ArrayIterator(){
+            for(int i = 0; i < rq.length; i++){
+                copy[i] = rq[i];
+            }
+        }
         public boolean hasNext(){
-            return curNum < size;
+            return curNum > 0;
         }
 
         public void remove(){
@@ -77,8 +87,16 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         }
 
         public Item next(){
-            if(curNum >= size) throw new NoSuchElementException();
-            return rq[curNum++];
+            if(!hasNext()) throw new NoSuchElementException();
+            int index = StdRandom.uniform(curNum);
+            Item item = copy[index];
+            if(index != curNum-1){
+                copy[index] = copy[curNum-1];
+            }
+            copy[curNum-1] = null;
+            curNum--;
+
+            return item;
         }
 
     }
@@ -86,17 +104,22 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     // unit testing (required)
     public static void main(String[] args){
         RandomizedQueue<Integer> test = new RandomizedQueue<>();
-        test.enqueue(1);
-        test.enqueue(2);
-        test.enqueue(3);
-        test.dequeue();
-        test.dequeue();
-        test.dequeue();
+        System.out.println(test.isEmpty());
+        test.enqueue(0);
+        System.out.println(test.dequeue());
+        System.out.println(test.isEmpty());
+        test.enqueue(0);
 
-        Iterator<Integer> it = test.iterator();
-        while (it.hasNext()){
-            System.out.println(it.next());
-        }
+//        test.enqueue(2);
+//        test.enqueue(3);
+//        test.dequeue();
+//        test.dequeue();
+//        test.dequeue();
+//
+//        Iterator<Integer> it = test.iterator();
+//        while (it.hasNext()){
+//            System.out.println(it.next());
+//        }
     }
 
 }

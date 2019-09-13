@@ -32,8 +32,12 @@ public class Deque<Item> implements Iterable<Item> {
         Node oldfirst = first;
         first = new Node();
         first.item = item;
+        first.prev = null;//注意null赋值
 
-        if(isEmpty()) last = first;
+        if(isEmpty()) {
+            last = first;
+            first.next = null;
+        }
         else {
             first.next = oldfirst;
             oldfirst.prev = first;
@@ -48,8 +52,12 @@ public class Deque<Item> implements Iterable<Item> {
         Node oldlast = last;
         last = new Node();
         last.item = item;
+        last.next = null;
 
-        if(isEmpty()) first = last;
+        if(isEmpty()) {
+            first = last;
+            last.prev = null;
+        }
         else {
             oldlast.next = last;
             last.prev = oldlast;
@@ -61,12 +69,14 @@ public class Deque<Item> implements Iterable<Item> {
     public Item removeFirst(){
         if(isEmpty()) throw new NoSuchElementException();
         Item item = first.item;
-
-        if(first.next == null) last = null;
-        else first = first.next;
-
-        //first.prev = null;
+        first = first.next;
         size--;
+        if(isEmpty()){
+            last  = null;
+            first = null;
+        }
+        else first.prev = null;
+
         return item;
     }
 
@@ -74,11 +84,14 @@ public class Deque<Item> implements Iterable<Item> {
     public Item removeLast(){
         if(isEmpty()) throw new NoSuchElementException();
         Item item = last.item;
-        if(last.prev == null) first = null;
-        else  last = last.prev;
-
-        last.next = null;
+        last = last.prev;
+        /** 先减size,再判断isEmpty, 同时注意null */
         size--;
+        if(isEmpty()){
+            last  = null;
+            first = null;
+        }
+        else  last.next = null;
         return item;
     }
 
