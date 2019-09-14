@@ -1,4 +1,5 @@
 public class Point implements Comparable<Point> {
+    // 算是否是ccw实际用就是向量的叉积
     public Point(int x, int y)                         // constructs the point (x, y)
 
     public   void draw()                               // draws this point
