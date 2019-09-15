@@ -37,6 +37,7 @@ public class FastCollinearPoints {
         for (int i = 0; i < N; i++){
             Point p = aux[i];
 
+            // 先找有没有重复元素,因为已经排过序,所以如果有重复元素应该在相邻位置
             if(prev != null && p.compareTo(prev) == 0){
                 throw new IllegalArgumentException();
             }else{
