@@ -1,11 +1,23 @@
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.StdDraw;
+import edu.princeton.cs.algs4.StdOut;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 public class BruteCollinearPoints {
     private int lineNum;
-    private LineSegment[] lineSegment;
+    private LineSegment[] segments;
 
     public BruteCollinearPoints(Point[] points){
         lineNum = 0;
         if(points == null) throw new IllegalArgumentException();
         int N = points.length;
+        //ArrayList<LineSegment> lineSegments = new ArrayList<>();
+
+        // 使用链表结构
+        List<LineSegment> lineSegments = new LinkedList<LineSegment>();
         for (int i = 0; i < N-3; i++){
             Point p0 = points[i];
             for(int j = i+1; j < N-2; j++){
@@ -25,18 +37,49 @@ public class BruteCollinearPoints {
                             if(slope0to3 == Double.NEGATIVE_INFINITY) throw new IllegalArgumentException();
 
                             if(Double.compare(slope0to1,slope0to3) == 0){
-                                lineSegment[lineNum++] = new LineSegment(p0,p3);
+                                lineSegments.add(new LineSegment(p0, p3));
                             }else continue;
                         }
-                    } else continue;
+                    }
                 }
             }
         }
+        segments = lineSegments.toArray(new LineSegment[lineSegments.size()]);
     }    // finds all line segments containing 4 points
     public           int numberOfSegments(){
         return lineNum;
     }        // the number of line segments
     public LineSegment[] segments(){
-        return lineSegment;
+        return segments.clone();
     }                // the line segments
+
+    public static void main(String[] args){
+        // read the n points from a file
+        In in = new In(args[0]);
+        int n = in.readInt();
+        Point[] points = new Point[n];
+        for (int i = 0; i < n; i++) {
+            int x = in.readInt();
+            int y = in.readInt();
+            points[i] = new Point(x, y);
+        }
+
+        // draw the points
+        StdDraw.enableDoubleBuffering();
+        StdDraw.setXscale(0, 32768);
+        StdDraw.setYscale(0, 32768);
+        for (Point p : points) {
+            p.draw();
+        }
+        StdDraw.show();
+
+        // print and draw the line segments
+        //FastCollinearPoints collinear = new FastCollinearPoints(points);
+        BruteCollinearPoints collinear = new BruteCollinearPoints(points);
+        for (LineSegment segment : collinear.segments()) {
+            StdOut.println(segment);
+            segment.draw();
+        }
+        StdDraw.show();
+    }
 }

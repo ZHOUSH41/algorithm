@@ -3,9 +3,11 @@ import edu.princeton.cs.algs4.Quick3way;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 public class FastCollinearPoints {
-    private LineSegment[] segments;
+    private LineSegment[] segments = null;
     private int n;
     public FastCollinearPoints(Point[] points){
         if(points == null) throw new IllegalArgumentException();
@@ -30,8 +32,9 @@ public class FastCollinearPoints {
 //        }
 
         Arrays.sort(aux);
-        ArrayList<LineSegment> lineSegments = new ArrayList<>();
-
+        //ArrayList<LineSegment> lineSegments = new ArrayList<>();
+        // 链表结构
+        List<LineSegment> lineSegments = new LinkedList<LineSegment>();
         Point prev = null;
 
         for (int i = 0; i < N; i++){
@@ -45,7 +48,7 @@ public class FastCollinearPoints {
             }
 
             Point[] slopeOrder = aux.clone();
-            Arrays.sort(aux,p.slopeOrder());
+            Arrays.sort(slopeOrder,p.slopeOrder());
 
 
             double lastSlope = Double.NEGATIVE_INFINITY;
@@ -80,10 +83,7 @@ public class FastCollinearPoints {
             }
         }
 
-        n = lineSegments.size();
-        for(int i = 0; i < n; i++){
-            segments[i] = lineSegments.get(i);
-        }
+        segments = lineSegments.toArray(new LineSegment[lineSegments.size()]);
 
     }     // finds all line segments containing 4 or more points
     public           int numberOfSegments(){
