@@ -8,17 +8,15 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class BruteCollinearPoints {
-    private int lineNum;
     private LineSegment[] segments;
 
     public BruteCollinearPoints(Point[] points){
-        lineNum = 0;
         if(points == null) throw new IllegalArgumentException();
         int N = points.length;
         //ArrayList<LineSegment> lineSegments = new ArrayList<>();
 
         // 使用链表结构
-        List<LineSegment> lineSegments = new LinkedList<LineSegment>();
+        List<LineSegment> lineSegments = new LinkedList<>();
         Point[] aux = new Point[points.length];
 
         for(int i = 0; i < N; i++){
@@ -30,7 +28,8 @@ public class BruteCollinearPoints {
 
         Point prev = null;
 
-        for (int i = 0; i < N-3; i++){
+//        for (int i = 0; i < N-3; i++){
+        for (int i = 0; i < N; i++){// i < N,因为会涉及到检查duplicate points,所以不能写成N-3
             //Point p0 = points[i];
             if(prev != null && prev.compareTo(aux[i]) == 0){
                 throw new IllegalArgumentException();
@@ -38,11 +37,11 @@ public class BruteCollinearPoints {
                 prev = aux[i];
             }
 
-            for(int j = i+1; j < N-2; j++){
+            for(int j = i+1; j < N; j++){
                 //Point p1 = points[j];
                 //double slope0to1 = p0.slopeTo(p1);
                 //if(slope0to1 == Double.NEGATIVE_INFINITY) throw new IllegalArgumentException();
-                for (int k = j+1; k < N-1; k++){
+                for (int k = j+1; k < N; k++){
                     for (int w = k+1; w < N; w++){
                         Point p0 = aux[i];
                         Point p1 = aux[j];
@@ -76,7 +75,7 @@ public class BruteCollinearPoints {
         segments = lineSegments.toArray(new LineSegment[lineSegments.size()]);
     }    // finds all line segments containing 4 points
     public           int numberOfSegments(){
-        return lineNum;
+        return segments.length;
     }        // the number of line segments
     public LineSegment[] segments(){
         return segments.clone();
