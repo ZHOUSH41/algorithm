@@ -1,3 +1,6 @@
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.StdOut;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -5,17 +8,19 @@ public class Board {
 
     private int row;
     private int[][] goal;
-    private int[][] tiles;
+    private int[][] blocks;
     private List<Board> neighbors;
 
     // create a board from an n-by-n array of tiles,
     // where tiles[row][col] = tile at (row, col)
     public Board(int[][] tiles){
         row = tiles.length;
+        goal = new int[row][row];
+        blocks = new int[row][row];
         for(int i = 0; i < row; i++){
             for (int j = 0; j < row; j++){
                 goal[i][j] = i*row + j+1;
-                this.tiles[i][j] = tiles[i][j];
+                blocks[i][j] = tiles[i][j];
             }
         }
         goal[row-1][row-1] = 0; // 最后一位设置为0
@@ -28,7 +33,7 @@ public class Board {
         for(int i = 0; i < dimension(); i++){
             stringOutput.append("\n");
             for(int j = 0; j < dimension(); j++){
-                stringOutput.append(" " + tiles[i][j]);
+                stringOutput.append(" " + blocks[i][j]);
             }
         }
 
@@ -45,7 +50,7 @@ public class Board {
         int dist = 0;
         for(int i = 0; i < row; i++){
             for(int j = 0; j < row; j++){
-                if(goal[i][j] != tiles[i][j]) dist++;
+                if(goal[i][j] != blocks[i][j]) dist++;
             }
         }
         return dist;
@@ -56,12 +61,12 @@ public class Board {
         int dist = 0;
         for(int i = 0; i < row; i++){
             for(int j = 0; j < row; j++){
-                int num = tiles[i][j];
-                if(num == 0) num = 9;
+                int num = blocks[i][j];
+                if(num == 0) num = row*row;
                 num -= 1;
                 int cur_row = num/row;
                 int cur_col = num%row;
-                dist += i+j -  cur_row - cur_col;
+                dist += Math.abs(i - cur_row) + Math.abs(j - cur_col);
             }
         }
         return dist;
@@ -71,7 +76,7 @@ public class Board {
     public boolean isGoal(){
         for (int i = 0; i < row; i++){
             for (int j = 0; j < row; j++){
-                if(goal[i][j] != tiles[i][j]) return false;
+                if(goal[i][j] != blocks[i][j]) return false;
             }
         }
         return true;
@@ -87,7 +92,7 @@ public class Board {
 
         for(int i = 0; i < row; i++){
             for(int j = 0; j < row; j++){
-                if(aux.tiles[i][j] != tiles[i][j]) return false;
+                if(aux.blocks[i][j] != blocks[i][j]) return false;
             }
         }
 
@@ -103,13 +108,15 @@ public class Board {
         int cur_row = 0, cur_col = 0;
 
         // find 0's row and col
+        // 新学的
+        outerloop:
         for (int i = 0; i < dimension(); i++){
             for (int j = 0; j < dimension(); j++){
-                if (tiles[i][j] == 0){
+                if (blocks[i][j] == 0){
                     cur_row = i;
                     cur_col = j;
+                    break outerloop;
                 }
-                break;
             }
         }
 
@@ -135,7 +142,7 @@ public class Board {
         int[][] aux = new int[dimension()][dimension()];
         for (int i = 0;i < dimension(); i++){
             for(int j = 0; j < dimension(); j++){
-                aux[i][j] = tiles[i][j];
+                aux[i][j] = blocks[i][j];
             }
         }
         return aux;
@@ -143,13 +150,14 @@ public class Board {
 
     // a board that is obtained by exchanging any pair of tiles
     public Board twin(){
+        /** the blank square is not a tile */
         int[][] twinBoard = copyBoard();
-        if(twinBoard[0][0] != 0 && tiles[1][0] != 0){
-            twinBoard[0][0] = tiles[1][0];
-            twinBoard[1][0] = tiles[0][0];
+        if(twinBoard[0][0] != 0 && blocks[1][0] != 0){
+            twinBoard[0][0] = blocks[1][0];
+            twinBoard[1][0] = blocks[0][0];
         }else{
-            twinBoard[1][1] = tiles[1][2];
-            twinBoard[1][2] = tiles[1][1];
+            twinBoard[1][1] = blocks[1][2];
+            twinBoard[1][2] = blocks[1][1];
         }
 
         return new Board(twinBoard);
@@ -158,7 +166,19 @@ public class Board {
 
     // unit testing (not graded)
     public static void main(String[] args){
-
+        In in = new In(args[0]);
+        int n = in.readInt();
+        int[][] blocks = new int[n][n];
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j < n; j++)
+                blocks[i][j] = in.readInt();
+        Board b = new Board(blocks);
+        StdOut.println(b);
+        StdOut.println(b.isGoal());
+        StdOut.println(b.dimension());
+        StdOut.println(b.hamming());
+        StdOut.println(b.manhattan());
+        StdOut.println(b.neighbors());
     }
 
 }
