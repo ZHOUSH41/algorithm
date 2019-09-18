@@ -2,9 +2,11 @@ import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.MinPQ;
 import edu.princeton.cs.algs4.StdOut;
 
+import java.util.Deque;
+import java.util.LinkedList;
+
 public class Solver {
-    private int hammDist, manhDist;
-    private int moveStep;
+    private SearchNode solutionNode;
 
     private class SearchNode implements Comparable<SearchNode>{
         public final Board board;
@@ -32,7 +34,6 @@ public class Solver {
             return this.priority - that.priority;
         }
 
-        public
     }
     // find a solution to the initial board (using the A* algorithm)
     public Solver(Board initial){
@@ -48,18 +49,32 @@ public class Solver {
         twinSolution.insert(twinInit);
 
 
-        
+        while (true){
+            SearchNode solutionNode = solution.delMin();
+            SearchNode twinNode     = twinSolution.delMin();
+
+            if (solutionNode.board.isGoal()){
+                this.solutionNode = solutionNode;
+                break;
+            } else if (twinNode.board.isGoal()){
+                this.solutionNode = null;
+                break;
+            }
+
+            solutionNode.insertNeighbors(solution);
+            twinNode.insertNeighbors(twinSolution);
+        }
     }
 
     // is the initial board solvable? (see below)
     public boolean isSolvable(){
-        return false;
+        return solutionNode != null;
     }
 
     // min number of moves to solve initial board
     public int moves(){
         if (isSolvable()){
-            return
+            return solutionNode.step;
         }else {
             return -1;
         }
@@ -67,6 +82,16 @@ public class Solver {
 
     // sequence of boards in a shortest solution
     public Iterable<Board> solution(){
+        if (isSolvable()){
+            Deque<Board> ans = new LinkedList<>();
+            SearchNode nextNode = solutionNode;
+            while (nextNode != null){
+                ans.addFirst(nextNode.board);
+                nextNode = nextNode.prev;
+            }
+
+            return ans;
+        } else return null;
 
     }
 

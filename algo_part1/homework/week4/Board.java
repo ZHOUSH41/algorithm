@@ -7,7 +7,7 @@ import java.util.List;
 public class Board {
 
     private int row;
-    private int[][] goal;
+    private int hammDist, manhDist;
     private int[][] blocks;
     private List<Board> neighbors;
 
@@ -15,19 +15,26 @@ public class Board {
     // where tiles[row][col] = tile at (row, col)
     public Board(int[][] tiles){
         row = tiles.length;
-        goal = new int[row][row];
+
         blocks = new int[row][row];
         for(int i = 0; i < row; i++){
             for (int j = 0; j < row; j++){
-                goal[i][j] = i*row + j+1;
-                blocks[i][j] = tiles[i][j];
+                int temp = tiles[i][j];
+                blocks[i][j] = temp;
+                if (temp != 0){
+                    if (temp != i*row+j+1) hammDist++;
+                    temp -= 1;
+                    int temp_row = temp/row;
+                    int temp_col = temp%row;
+                    manhDist += Math.abs(i - temp_row) + Math.abs(j - temp_col);
+                }
             }
         }
-        goal[row-1][row-1] = 0; // 最后一位设置为0
     }
 
     // string representation of this board
     public String toString(){
+        // String的构造
         StringBuilder stringOutput = new StringBuilder();
         stringOutput.append(dimension());
         for(int i = 0; i < dimension(); i++){
@@ -47,39 +54,17 @@ public class Board {
 
     // number of tiles out of place
     public int hamming(){
-        int dist = 0;
-        for(int i = 0; i < row; i++){
-            for(int j = 0; j < row; j++){
-                if(goal[i][j] != blocks[i][j]) dist++;
-            }
-        }
-        return dist;
+        return hammDist;
     }
 
     // sum of Manhattan distances between tiles and goal
     public int manhattan(){
-        int dist = 0;
-        for(int i = 0; i < row; i++){
-            for(int j = 0; j < row; j++){
-                int num = blocks[i][j];
-                if(num == 0) num = row*row;
-                num -= 1;
-                int cur_row = num/row;
-                int cur_col = num%row;
-                dist += Math.abs(i - cur_row) + Math.abs(j - cur_col);
-            }
-        }
-        return dist;
+        return manhDist;
     }
 
     // is this board the goal board?
     public boolean isGoal(){
-        for (int i = 0; i < row; i++){
-            for (int j = 0; j < row; j++){
-                if(goal[i][j] != blocks[i][j]) return false;
-            }
-        }
-        return true;
+        return hamming() == 0;
     }
 
     // does this board equal y?
@@ -151,13 +136,14 @@ public class Board {
     // a board that is obtained by exchanging any pair of tiles
     public Board twin(){
         /** the blank square is not a tile */
+        // 任意交换,考虑不要超过row范围
         int[][] twinBoard = copyBoard();
         if(twinBoard[0][0] != 0 && blocks[1][0] != 0){
             twinBoard[0][0] = blocks[1][0];
             twinBoard[1][0] = blocks[0][0];
         }else{
-            twinBoard[1][1] = blocks[1][2];
-            twinBoard[1][2] = blocks[1][1];
+            twinBoard[0][1] = blocks[1][1];
+            twinBoard[1][1] = blocks[0][1];
         }
 
         return new Board(twinBoard);
@@ -178,7 +164,7 @@ public class Board {
         StdOut.println(b.dimension());
         StdOut.println(b.hamming());
         StdOut.println(b.manhattan());
-        StdOut.println(b.neighbors());
+//        StdOut.println(b.neighbors());
     }
 
 }
