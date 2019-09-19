@@ -18,11 +18,13 @@ public class Solver {
             this.board = board;
             this.prev = prev;
             this.step = prev == null ? 0 : prev.step+1;
+            // 优先的是manh距离+步数之和
             this.priority =  board.manhattan() + step;
         }
 
         public void insertNeighbors(MinPQ<SearchNode> pq){
             for (Board neighbor : board.neighbors()){
+                // 与prev不同才能进入
                 if(prev != null && neighbor.equals(prev.board)) continue;
 
                 SearchNode node = new SearchNode(neighbor, this);
@@ -38,6 +40,7 @@ public class Solver {
     // find a solution to the initial board (using the A* algorithm)
     public Solver(Board initial){
         if (initial == null) throw new IllegalArgumentException();
+        // 解决是否可解的问题,是让origin和twin共同去找solution,算法保证了只有其中一个能找到
         MinPQ<SearchNode> solution = new MinPQ<>();
         MinPQ<SearchNode> twinSolution = new MinPQ<>();
 
