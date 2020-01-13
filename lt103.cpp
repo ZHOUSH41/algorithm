@@ -70,9 +70,10 @@ class Solution {
         return res;
     }
     vector<vector<int>> zigzagLevelOrder_better_code(TreeNode *root) {
+        // 这种需要反转数组的
         if (!root) return {};
         vector<vector<int>> res;
-        queue<TreeNode *> q;
+        queue<TreeNode *> q{{root}};
         int cnt = 0;
         while (!q.empty()) {
             vector<int> oneLevel;
@@ -87,5 +88,26 @@ class Solution {
             res.push_back(oneLevel);
             ++cnt;
         }
+
+        // 这种不需要反转数组
+        if (!root) return {};
+        vector<vector<int>> res;
+        queue<TreeNode *> q{{root}};
+        bool leftToRight = true;
+        while (!q.empty()) {
+            int size = q.size();
+            vector<int> oneLevel(size);  // oneLevel初始化一个大小
+            for (int i = 0; i < size; ++i) {
+                TreeNode *t = q.front();
+                q.pop();
+                int index = leftToRight ? i : (size - 1 - i);
+                oneLevel[index] = t->val;
+                if (t->left) q.push(t->left);
+                if (t->right) q.push(t->right);
+            }
+            leftToRight = !leftToRight;
+            res.push_back(oneLevel);
+        }
+        return res;
     }
 };
